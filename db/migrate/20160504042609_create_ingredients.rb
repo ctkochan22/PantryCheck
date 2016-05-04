@@ -4,6 +4,7 @@ class CreateIngredients < ActiveRecord::Migration
       t.integer :pantry_id
       t.string :name
       t.string :category
+      t.string :storage_type
       t.float :amount
 
       t.timestamps null: false

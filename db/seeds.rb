@@ -9,10 +9,13 @@
 
 User.create(pantry_id: 1, personal_store: 2, phone_number: "4156249126", first_name: "Kosuke", last_name: "Tseng")
 
-Pantry.create()
-Pantry.create()
+Pantry.create(name: "Capital")
+Pantry.create(name: "Kosuke's Personal")
 
 ingredient_list = [
-{pantry_id: 1, name: "Coconut Oil", }
+{pantry_id: 1, name: "Coconut Oil", category: "misc", storage_type: "volume", amount: "0.75"},
+{pantry_id: 1, name: "Paprika", category: "spice", storage_type: "spice", amount: "0.75"},
+{pantry_id: 1, name: "Garlic Salt", category: "spice", storage_type: "spice", amount: "0.5"},
+{pantry_id: 2, name: "Rosemary", category: "spice", storage_type: "spice", amount: "0.5"}
 ]
 
