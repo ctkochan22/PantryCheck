@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create(pantry_id: 1, personal_store: 2, phone_number: "4156249126", first_name: "Kosuke", last_name: "Tseng")
+User.create(pantry_id: 1, personalstore_id: 2, phone_number: "4156249126", first_name: "Kosuke", last_name: "Tseng")
 
 Pantry.create(name: "Capital")
 Pantry.create(name: "Kosuke's Personal")
@@ -19,3 +19,6 @@ ingredient_list = [
 {pantry_id: 2, name: "Rosemary", category: "spice", storage_type: "spice", amount: "0.5"}
 ]
 
+ingredient_list.each do |item_details|
+  Ingredient.create(item_details)
+end

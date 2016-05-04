@@ -20,12 +20,14 @@ ActiveRecord::Schema.define(version: 20160504042609) do
     t.integer  "pantry_id"
     t.string   "name"
     t.string   "category"
+    t.string   "storage_type"
     t.float    "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "pantries", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
