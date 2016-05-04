@@ -1,0 +1,4 @@
+# PantryCheck
+
+## Synopsis
+
