@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :pantry_id
       t.integer :personalstore_id
       t.string :phone_number, null: false
+      t.string :password_digest, null: false
       t.string :first_name
       t.string :last_name
 
