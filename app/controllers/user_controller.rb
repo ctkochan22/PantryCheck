@@ -15,11 +15,18 @@ class UserController < ApplicationController
     end
   end
 
+
+
   def show
-    puts "********"
-    puts params
   end
 
+
+  #LogIN LogOut
+  def logout
+    puts "HITTING: user#logout"
+    session[:user_id] = nil
+    redirect_to "/"
+  end
 
   private
 
