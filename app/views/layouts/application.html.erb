@@ -11,8 +11,10 @@
 
   <% if current_user %>
     <h3>Logged In</h3>
+    <a href="user/logout"><h3>Log Out</h3></a>
   <% else %>
     <h3>Log In</h3>
+    <a href='user/new'><h3>Sign Up</h3></a>
   <% end %>
 
 <%= yield %>
