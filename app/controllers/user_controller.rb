@@ -18,15 +18,9 @@ class UserController < ApplicationController
 
 
   def show
+    @user = User.find_by(id: current_user.id)
   end
 
-
-  #LogIN LogOut
-  def logout
-    puts "HITTING: user#logout"
-    session[:user_id] = nil
-    redirect_to "/"
-  end
 
   private
 

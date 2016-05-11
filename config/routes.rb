@@ -3,15 +3,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  resources :user do
-    collection do
-      get 'logout'
-    end
-  end
+  resources :user
   resources :pantry
   resources :ingredient
 
   root 'user#index'
+
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  get '/logout' => 'session#destroy'
 
 
   # Example of regular route:
