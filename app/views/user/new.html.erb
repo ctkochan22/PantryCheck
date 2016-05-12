@@ -1,16 +1,12 @@
 
 <h1>Hello</h1>
-<%= form_for :user, url: {action: "create"} do |f|%>
-  <%= f.label "First Name:" %>
+<%= bootstrap_form_for :user, url: {action: "create"} do |f|%>
   <%= f.text_field :first_name %>
   <br>
-  <%= f.label "Last Name:" %>
   <%= f.text_field :last_name %>
   <br>
-  <%= f.label "Phone Number:" %>
   <%= f.text_field :phone_number %>
   <br>
-  <%= f.label "Password" %>
   <%= f.password_field :password %>
 
   <%= f.submit "Submit" %>
