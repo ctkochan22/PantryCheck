@@ -2,4 +2,26 @@ User#show Page
 
 Currently showing <%= @user.first_name + " " + @user.last_name %>
 
+<h3>Pantry</h3>
+<% if @pantry == nil %>
+  <h4>You don't seem to have a Pantry. Click to create one</h4>
+<% else %>
+  <h5>Pantry Name: <%= @pantry.name %></h5>
+<% end %>
+
+<div id="pantryContent">
+  <table>
+    <% if @ingredients == nil %>
+      <h4>Your pantry seems to be empty!</h4>
+    <% else %>
+      <tr>
+        <td>Name</td>
+        <td>Category</td>
+        <td>Amount</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+
 
