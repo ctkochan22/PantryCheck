@@ -1,0 +1,10 @@
+<h3>Currently in Ingredient#finish</h3>
+
+
+<%= bootstrap_form_for :ingredient, url: {action: 'complete'} do |f| %>
+<%= f.text_field :amount %>
+<%= f.hidden_field :name, value: @package[:name] %>
+<%= f.hidden_field :category, value: @package[:category] %>
+<%= f.hidden_field :storage_type, value: @package[:storage_type]%>
+<%= f.submit "Add" %>
+<% end %>

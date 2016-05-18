@@ -9,14 +9,18 @@
 
 User.create(pantry_id: 1, personalstore_id: 2, phone_number: "4156249126", first_name: "Kosuke", last_name: "Tseng", password_digest: '1951')
 
-Pantry.create(name: "Capital")
-Pantry.create(name: "Kosuke's Personal")
+User.create(pantry_id: 1, phone_number: "4153857063", first_name: "Jake", last_name: "Kaplove", password_digest: '1234')
+
+Pantry.create(name: "Capital", is_private: false)
+Pantry.create(name: "Kosuke's Personal", is_private: true)
 
 ingredient_list = [
-{pantry_id: 1, name: "Coconut Oil", category: "misc", storage_type: "volume", amount: "0.75"},
-{pantry_id: 1, name: "Paprika", category: "spice", storage_type: "spice", amount: "0.75"},
-{pantry_id: 1, name: "Garlic Salt", category: "spice", storage_type: "spice", amount: "0.5"},
-{pantry_id: 2, name: "Rosemary", category: "spice", storage_type: "spice", amount: "0.5"}
+{pantry_id: 1, name: "Coconut Oil", category: "msc", storage_type: "bsc", amount: "About 75%"},
+{pantry_id: 1, name: "Paprika", category: "spi", storage_type: "bsc", amount: "About 75%"},
+{pantry_id: 1, name: "Garlic Salt", category: "spi", storage_type: "bsc", amount: "About 75%"},
+{pantry_id: 1, name: "Jim Beam Whiskey", category: "bev", storage_type: "bsc", amount: "full"},
+{pantry_id: 1, name: "Salmon", category: "mea", storage_type: "num", amount: "3"},
+{pantry_id: 2, name: "Rosemary", category: "spi", storage_type: "bsc", amount: "half"}
 ]
 
 ingredient_list.each do |item_details|

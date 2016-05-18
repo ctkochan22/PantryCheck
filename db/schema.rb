@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160504042609) do
     t.string   "name"
     t.string   "category"
     t.string   "storage_type"
-    t.float    "amount"
+    t.string   "amount"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

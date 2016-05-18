@@ -1,0 +1,13 @@
+<h3>Currently in Ingredient#new</h3>
+
+
+<%= bootstrap_form_for :ingredient, url: {action: 'create'} do |f| %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.select :category, @categories %>
+  <br>
+  <%= f.select :storage_type, @storage_types %>
+  <br>
+  <%= f.submit "Next" %>
+<% end %>
+
