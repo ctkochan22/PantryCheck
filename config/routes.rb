@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   resources :user
   resources :pantry
-  resources :ingredient
+  resources :ingredient do
+    collection do
+      get 'finish'
+      post 'complete'
+    end
+  end
 
   root 'user#index'
 

@@ -1,0 +1,13 @@
+<h3>Currently in Ingredient#new</h3>
+
+
+<%= bootstrap_form_for :ingredient, url: {action: 'create'} do |f| %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.select :category, [['Please Select--', 0], ['Beverage', 1], ['Bread/Bakery', 2], ['Canned/Jarred Goods', 3], ['Dairy', 4], ['Dry/Baking Goods', 5], ['Frozen Goods', 6], ['Meat', 7], ['Spice', 8], ['Produce', 9], ['Misc', 11]] %>
+  <br>
+  <%= f.select :storage_type, [['Please Select--', 0], ['Basic (Full, half, almost empty, etc.)', 1], ['Number (0.5, 1, 2, etc.)', 2]] %>
+  <br>
+  <%= f.submit "Next" %>
+<% end %>
+
