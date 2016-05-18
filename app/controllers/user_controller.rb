@@ -20,7 +20,7 @@ class UserController < ApplicationController
   def show
     @user = User.find_by(id: current_user.id)
     @pantry = Pantry.find_by(id: @user.pantry_id)
-    @ingredients = Ingredient.find_by(pantry_id: @pantry.id)
+    @ingredients = Ingredient.find_by(pantry_id: @user.pantry_id)
   end
 
 
