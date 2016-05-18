@@ -3,23 +3,23 @@ class Ingredient < ActiveRecord::Base
 
 
   @@categories = {
-    0 => 'Please Select--',
-    1 => 'Beverage',
-    2 => 'Bread/Bakery',
-    3 => 'Canned/Jarred Goods',
-    4 => 'Dairy',
-    5 => 'Dry/Baking Goods',
-    6 => 'Frozen Goods',
-    7 => 'Meat',
-    8 => 'Spice',
-    9 => 'Produce',
-    10 => 'Misc'
+    'none' => 'Please Select--',
+    'bev' => 'Beverage',
+    'bre' => 'Bread/Bakery',
+    'can' => 'Canned/Jarred Goods',
+    'dai' => 'Dairy',
+    'dry' => 'Dry/Baking Goods',
+    'frz' => 'Frozen Goods',
+    'mea' => 'Meat',
+    'spi' => 'Spice',
+    'pro' => 'Produce',
+    'msc' => 'Misc'
   }
 
   @@storage_types = {
-    0 => 'Please Select--',
-    1 => 'Basic (Full, half, almost empty, etc.)',
-    2 => 'Number (0.5, 1, 2, etc.)'
+    'none' => 'Please Select--',
+    'bsc' => 'Basic (Full, half, almost empty, etc.)',
+    'num' => 'Number (0.5, 1, 2, etc.)'
   }
 
 
