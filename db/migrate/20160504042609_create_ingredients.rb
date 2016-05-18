@@ -5,7 +5,7 @@ class CreateIngredients < ActiveRecord::Migration
       t.string :name
       t.string :category
       t.string :storage_type
-      t.float :amount
+      t.string :amount
 
       t.timestamps null: false
     end

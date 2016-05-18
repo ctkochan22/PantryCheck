@@ -2,7 +2,7 @@
 
 
 <%= bootstrap_form_for :ingredient, url: {action: 'complete'} do |f| %>
-<%= f.number_field :amount %>
+<%= f.text_field :amount %>
 <%= f.hidden_field :name, value: @package[:name] %>
 <%= f.hidden_field :category, value: @package[:category] %>
 <%= f.hidden_field :storage_type, value: @package[:storage_type]%>
