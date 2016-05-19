@@ -22,7 +22,11 @@ class Ingredient < ActiveRecord::Base
     'num' => 'Number (0.5, 1, 2, etc.)'
   }
 
-
+  def category_name
+    puts @@categories
+    puts self.category
+    return @@categories[self.category]
+  end
 
 
   def self.categories_array

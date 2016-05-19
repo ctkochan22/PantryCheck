@@ -10,15 +10,23 @@ Currently showing <%= @user.first_name + " " + @user.last_name %>
 <% end %>
 
 <div id="pantryContent">
-  <table>
+  <table class='table'>
     <% if @ingredients == nil %>
       <h4>Your pantry seems to be empty!</h4>
     <% else %>
       <tr>
-        <td>Name</td>
-        <td>Category</td>
-        <td>Amount</td>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Amount</th>
       </tr>
+
+      <% @ingredients.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.category_name %></td>
+          <td><%= item.amount %></td>
+        </tr>
+      <% end %>
     <% end %>
   </table>
 </div>
