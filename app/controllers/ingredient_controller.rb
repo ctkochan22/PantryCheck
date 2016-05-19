@@ -14,8 +14,14 @@ class IngredientController < ApplicationController
   end
 
   def complete
-    puts "******"
-    puts amount_params
+    user = User.find_by(id: current_user)
+    ingredient = Ingredient.new(amount_params)
+    ingredient[:pantry_id] = user.pantry_id
+    if ingredient.save
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to new_ingredient_path
+    end
   end
 
   private
