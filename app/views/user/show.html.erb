@@ -4,7 +4,8 @@ Currently showing <%= @user.first_name + " " + @user.last_name %>
 
 <h3>Pantry</h3>
 <% if @pantry == nil %>
-  <h4>You don't seem to have a Pantry. Click to create one</h4>
+  <h4>You don't seem to have a Pantry.</h4>
+  <a href='/pantry/new'><p>Click to create one</p></a>
 <% else %>
   <h5>Pantry Name: <%= @pantry.name %></h5>
 <% end %>
