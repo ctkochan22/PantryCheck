@@ -1,0 +1,8 @@
+
+
+<h2>Create A Pantry</h2>
+<%= bootstrap_form_for :pantry, url: {action: 'create'} do |f|%>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Submit" %>
+<% end %>
