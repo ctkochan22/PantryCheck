@@ -11,6 +11,7 @@ class IngredientController < ApplicationController
 
   def finish
     @package = params
+    @bsc_storage = Ingredient.bsc_storage
   end
 
   def complete

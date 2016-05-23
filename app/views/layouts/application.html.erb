@@ -8,18 +8,42 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <a href="/"><h1>PantryCheck</h1></a>
 
-  <% if current_user %>
-    <h3>Logged In</h3>
-    <a href="/logout"><h3>Log Out</h3></a>
-  <% else %>
-    <a href='/login'><h3>Log In</h3></a>
-    <a href='user/new'><h3>Sign Up</h3></a>
-  <% end %>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <% if current_user %>
+          <a class="navbar-brand" href=<%= user_path(current_user.id) %>>PantryCheck</a>
+        <% else %>
+          <a class="navbar-brand" href="/">PantryCheck</a>
+        <% end %>
+      </div><!-- /.navbar-header -->
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li class='active'><a href="/about">About</a></li>
+            <li class='active'><a href="/logout">Log Out</a></li>
+          <% else %>
+            <li class='active'><a href="/about">About</a></li>
+            <li class='active'><a href="/login">Log In</a></li>
+            <li class='active'><a href="user/new">Sign Up</a></li>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
 <%= yield %>
+
 
 </body>
 </html>

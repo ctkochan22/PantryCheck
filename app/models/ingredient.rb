@@ -22,6 +22,8 @@ class Ingredient < ActiveRecord::Base
     'num' => 'Number (0.5, 1, 2, etc.)'
   }
 
+  @@bsc_storage = ["Please Select--", "Full", "More than Half", "Half", "Quarter Full", "Almost Empty", "Empty"]
+
   def category_name
     puts @@categories
     puts self.category
@@ -43,5 +45,9 @@ class Ingredient < ActiveRecord::Base
       storage_array << [value, key]
     end
     return storage_array
+  end
+
+  def self.bsc_storage
+    return @@bsc_storage
   end
 end

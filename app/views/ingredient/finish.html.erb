@@ -2,7 +2,11 @@
 
 
 <%= bootstrap_form_for :ingredient, url: {action: 'complete'} do |f| %>
-<%= f.text_field :amount %>
+<% if @package[:storage_type] == 'bsc' %>
+  <%= f.select :amount, @bsc_storage %>
+<% else %>
+  <%= f.text_field :amount %>
+<% end %>
 <%= f.hidden_field :name, value: @package[:name] %>
 <%= f.hidden_field :category, value: @package[:category] %>
 <%= f.hidden_field :storage_type, value: @package[:storage_type]%>
