@@ -8,6 +8,7 @@ Currently showing <%= @user.first_name + " " + @user.last_name %>
   <a href='/pantry/new'><p>Click to create one</p></a>
 <% else %>
   <h5>Pantry Name: <%= @pantry.name %></h5>
+  <a href='/ingredient/new'><button type='button' class='btn btn-primary'>Add Ingredient</button></a>
 <% end %>
 
 <div id="pantryContent">
@@ -26,6 +27,7 @@ Currently showing <%= @user.first_name + " " + @user.last_name %>
           <td><%= item.name %></td>
           <td><%= item.category_name %></td>
           <td><%= item.amount %></td>
+          <td><a href='#'>Edit</a></td>
         </tr>
       <% end %>
     <% end %>

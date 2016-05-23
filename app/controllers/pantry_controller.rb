@@ -14,6 +14,7 @@ class PantryController < ApplicationController
     user = User.find_by(id: current_user.id)
     pantry = Pantry.new(name: pantry_params[:name], is_private: false)
     if pantry.save
+      user.update(pantry_id: pantry.id)
       redirect_to pantry_path(pantry.id)
     else
       redirect_to user_path(current_user.id)
