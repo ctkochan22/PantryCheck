@@ -1,8 +1,21 @@
 class IngredientController < ApplicationController
 
+  def show
+  end
+
   def new
     @categories = Ingredient.categories_array
     @storage_types = Ingredient.storage_types_array
+  end
+
+  def edit_amount
+  end
+
+
+  def edit
+  end
+
+  def update
   end
 
   def create

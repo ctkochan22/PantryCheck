@@ -10,6 +10,11 @@ Rails.application.routes.draw do
       get 'finish'
       post 'complete'
     end
+
+    member do
+      get 'edit_amount'
+      put 'update_amount'
+    end
   end
 
   root 'user#index'
