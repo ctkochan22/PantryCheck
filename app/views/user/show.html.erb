@@ -20,6 +20,7 @@ Currently showing <%= @user.first_name + " " + @user.last_name %>
         <th>Name</th>
         <th>Category</th>
         <th>Amount</th>
+        <th></th>
       </tr>
 
       <% @ingredients.each do |item| %>
@@ -27,7 +28,7 @@ Currently showing <%= @user.first_name + " " + @user.last_name %>
           <td><%= item.name %></td>
           <td><%= item.category_name %></td>
           <td><%= item.amount %></td>
-          <td><a href='#'>Edit</a></td>
+          <td><a href=<%= "/ingredient/#{item.id}" %>>Edit</a></td>
         </tr>
       <% end %>
     <% end %>
