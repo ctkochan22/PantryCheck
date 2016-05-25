@@ -1,0 +1,12 @@
+edit_amount.html.erb
+
+<%= bootstrap_form_for :ingredient, url: {action: 'update_amount'}, method: 'PUT' do |f| %>
+  <% if @ingredient[:storage_type] == 'bsc' %>
+    <%= f.select :amount, @bsc_storage %>
+  <% else %>
+    <%= f.text_field :amount %>
+  <% end %>
+  <%= f.hidden_field :id, value: @ingredient.id %>
+  <%= f.submit "Update" %>
+<% end %>
+
