@@ -1,0 +1,14 @@
+Ingredient
+edit.html.erb
+
+<%= bootstrap_form_for :ingredient, url: {action: 'update'}, method: 'PUT' do |f| %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.select :category, @categories %>
+  <br>
+  <%= f.select :storage_type, @storage_types %>
+  <br>
+  <%= f.submit "Update" %>
+<% end %>
+
+<a href=<%= "/user/#{current_user.id}" %>><button type='button' class="btn btn-danger">Cancel</button></a>

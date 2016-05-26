@@ -28,7 +28,7 @@ Currently showing <%= @user.first_name + " " + @user.last_name %>
           <td><%= item.name %></td>
           <td><%= item.category_name %></td>
           <td><%= item.amount %></td>
-          <td><a href=<%= "/ingredient/#{item.id}" %>>Edit</a></td>
+          <td><a href=<%= "/ingredient/#{item.id}/edit_amount" %>>Edit</a></td>
         </tr>
       <% end %>
     <% end %>

@@ -12,3 +12,5 @@
 <%= f.hidden_field :storage_type, value: @package[:storage_type]%>
 <%= f.submit "Add" %>
 <% end %>
+
+<a href=<%= "/user/#{current_user.id}" %>><button type='button' class="btn btn-danger">Cancel</button></a>
