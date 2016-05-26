@@ -41,9 +41,15 @@ class IngredientController < ApplicationController
 
 ## Full Update
   def edit
+    @categories = Ingredient.categories_array
+    @storage_types = Ingredient.storage_types_array
+    @ingredient = Ingredient.find_by(id: params[:id])
   end
 
   def update
+    ingredient = Ingredient.find_by(id: params[:id])
+    ingredient.update_attributes(start_params)
+    redirect_to user_path(current_user.id)
   end
 ##
 

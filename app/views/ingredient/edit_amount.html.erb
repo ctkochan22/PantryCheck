@@ -10,3 +10,6 @@ edit_amount.html.erb
   <%= f.submit "Update" %>
 <% end %>
 
+<a href=<%= "/ingredient/#{@ingredient.id}/edit" %>><button type='button' class="btn btn-warning">Edit More</button></a>
+
+<a href=<%= "/user/#{current_user.id}" %>><button type='button' class="btn btn-danger">Cancel</button></a>
