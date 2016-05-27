@@ -1,5 +1,6 @@
 class Ingredient < ActiveRecord::Base
   belongs_to :pantry
+  attr_reader :categories
 
 
   @@categories = {
@@ -25,11 +26,12 @@ class Ingredient < ActiveRecord::Base
   @@bsc_storage = ["Please Select--", "Full", "More than Half", "Half", "Quarter Full", "Almost Empty", "Empty"]
 
   def category_name
-    puts @@categories
-    puts self.category
     return @@categories[self.category]
   end
 
+  def self.abrev_to_name(abrev)
+    return @@categories[abrev]
+  end
 
   def self.categories_array
     categories_array = []

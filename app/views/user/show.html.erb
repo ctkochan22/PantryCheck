@@ -11,17 +11,43 @@ Currently showing <%= @user.first_name + " " + @user.last_name %>
   <a href='/ingredient/new'><button type='button' class='btn btn-primary'>Add Ingredient</button></a>
 <% end %>
 
+<div class='dropdown'>
+    <button class="btn btn-default dropdown-toggle" type='button' id='categoryDropdown' data-toggle="dropdown">
+      <% if params[:category] == nil %>
+        Select Category
+      <% else %>
+        <%= Ingredient.abrev_to_name(params[:category]) %>
+      <% end %>
+      <span class='caret'></span> <!-- Down Arrow -->
+    </button>
+  <ul class='dropdown-menu' >
+    <% if @categories != nil %>
+        <li><a href= <%= "/user/#{current_user.id}" %>>All</a></a>
+      <% @categories.each do |category| %>
+        <!-- Skips Please Select -->
+        <% next if category[1] == 'none' %>
+        <li><a href=<%= "/user/#{current_user.id}?category=#{category[1]}" %>> <%= category[0] %> </a></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
 <div id="pantryContent">
   <table class='table'>
-    <% if @ingredients == nil %>
-      <h4>Your pantry seems to be empty!</h4>
-    <% else %>
-      <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Amount</th>
-        <th></th>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th></th>
+    </tr>
+
+    <% if @ingredients == nil || @ingredients.count == 0 %>
+      <tr><td><h4>Your pantry seems to be empty!!</h4></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
+    <% else %>
 
       <% @ingredients.each do |item| %>
         <tr>

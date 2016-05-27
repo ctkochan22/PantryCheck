@@ -20,7 +20,12 @@ class UserController < ApplicationController
   def show
     @user = User.find_by(id: current_user.id)
     @pantry = Pantry.find_by(id: @user.pantry_id)
-    @ingredients = Ingredient.where(pantry_id: @user.pantry_id)
+    if params[:category] == nil
+      @ingredients = Ingredient.where(pantry_id: @user.pantry_id)
+    else
+      @ingredients = Ingredient.where(pantry_id: @user.pantry_id, category: params[:category])
+    end
+    @categories = Ingredient.categories_array
   end
 
 
