@@ -15,8 +15,6 @@ class UserController < ApplicationController
     end
   end
 
-
-
   def show
     @user = User.find_by(id: current_user.id)
     @pantry = Pantry.find_by(id: @user.pantry_id)
