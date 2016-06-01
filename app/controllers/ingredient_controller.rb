@@ -53,9 +53,16 @@ class IngredientController < ApplicationController
   end
 ##
 
+  def search
+    @ingredients = Ingredient.where(pantry_id: current_pantry.id)
+    if request.xhr?
+      return
+    else
+      redirect_to user_path(current_user.id)
+    end
+  end
 
   private
-
   def start_params
     params.require(:ingredient).permit(
         :name,
