@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     collection do
       get 'finish'
       post 'complete'
+      get 'search'
     end
 
     member do

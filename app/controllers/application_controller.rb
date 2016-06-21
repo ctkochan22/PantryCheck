@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+
+  def current_pantry
+    @current_pantry ||= Pantry.find_by(id: @current_user.pantry_id) if @current_user
+  end
+  helper_method :current_pantry
+
 end
