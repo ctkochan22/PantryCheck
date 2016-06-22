@@ -16,12 +16,12 @@ Pantry.create(name: "Capital", is_private: false)
 Pantry.create(name: "Kosuke's Personal", is_private: true)
 
 ingredient_list = [
-{pantry_id: 1, name: "Coconut Oil", category: "msc", storage_type: "bsc", amount: "About 75%"},
-{pantry_id: 1, name: "Paprika", category: "spi", storage_type: "bsc", amount: "About 75%"},
-{pantry_id: 1, name: "Garlic Salt", category: "spi", storage_type: "bsc", amount: "About 75%"},
-{pantry_id: 1, name: "Jim Beam Whiskey", category: "bev", storage_type: "bsc", amount: "full"},
-{pantry_id: 1, name: "Salmon", category: "mea", storage_type: "num", amount: "3"},
-{pantry_id: 2, name: "Rosemary", category: "spi", storage_type: "bsc", amount: "half"}
+{pantry_id: 1, name: "Coconut Oil", search_name: 'coconut oil', category: "msc", storage_type: "bsc", amount: "About 75%"},
+{pantry_id: 1, name: "Paprika", search_name: 'paprika', category: "spi", storage_type: "bsc", amount: "About 75%"},
+{pantry_id: 1, name: "Garlic Salt", search_name: 'garlic salt', category: "spi", storage_type: "bsc", amount: "About 75%"},
+{pantry_id: 1, name: "Jim Beam Whiskey", search_name: 'jim bream whiskey', category: "bev", storage_type: "bsc", amount: "full"},
+{pantry_id: 1, name: "Salmon", search_name: 'salmon', category: "mea", storage_type: "num", amount: "3"},
+{pantry_id: 2, name: "Rosemary", search_name: 'rosemary', category: "spi", storage_type: "bsc", amount: "half"}
 ]
 
 ingredient_list.each do |item_details|

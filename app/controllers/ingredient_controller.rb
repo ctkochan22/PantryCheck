@@ -20,6 +20,7 @@ class IngredientController < ApplicationController
   def complete
     user = User.find_by(id: current_user)
     ingredient = Ingredient.new(ingredient_params)
+    ingredient[:search_name] = ingredient_params[:name].downcase
     ingredient[:pantry_id] = user.pantry_id
     if ingredient.save
       redirect_to user_path(current_user.id)
@@ -49,14 +50,20 @@ class IngredientController < ApplicationController
   def update
     ingredient = Ingredient.find_by(id: params[:id])
     ingredient.update_attributes(start_params)
+    ingredient.update(search_name: start_params[:name].downcase)
     redirect_to user_path(current_user.id)
   end
 ##
 
   def search
+    regex = "(.|)#{params[:search_term]}(.|)"
+    term = Regexp.new(regex)
     @ingredients = Ingredient.where(pantry_id: current_pantry.id)
+    @ingredients = @ingredients.select { |item| item[:search_name] =~ term }
+    puts "*******"
+    puts @ingredients
     if request.xhr?
-      return
+      return @ingredients
     else
       redirect_to user_path(current_user.id)
     end

@@ -52,4 +52,5 @@ class Ingredient < ActiveRecord::Base
   def self.bsc_storage
     return @@bsc_storage
   end
+
 end

@@ -3,6 +3,7 @@ class CreateIngredients < ActiveRecord::Migration
     create_table :ingredients do |t|
       t.integer :pantry_id
       t.string :name
+      t.string :search_name
       t.string :category
       t.string :storage_type
       t.string :amount

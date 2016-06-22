@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160504042609) do
   create_table "ingredients", force: :cascade do |t|
     t.integer  "pantry_id"
     t.string   "name"
+    t.string   "search_name"
     t.string   "category"
     t.string   "storage_type"
     t.string   "amount"
