@@ -1,2 +1,30 @@
 <h1>Search#show</h1>
-<p>Find me in app/views/search/show.html.erb</p>
+<h4>Search Results for: <%= @search_term %></h4>
+<div id="pantryContent">
+  <table class='table table-hover table-bordered'>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th></th>
+    </tr>
+
+    <% if @ingredients == nil || @ingredients.count == 0 %>
+      <tr><td><h4>Could not find what you are looking for</h4></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% else %>
+
+      <% @ingredients.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.category_name %></td>
+          <td><%= item.amount %></td>
+          <td><a href=<%= "/ingredient/#{item.id}/edit_amount" %>>Edit</a></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
