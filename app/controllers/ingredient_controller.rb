@@ -55,19 +55,20 @@ class IngredientController < ApplicationController
   end
 ##
 
-  def search
-    regex = "(.|)#{params[:search_term]}(.|)"
-    term = Regexp.new(regex)
-    @ingredients = Ingredient.where(pantry_id: current_pantry.id)
-    @ingredients = @ingredients.select { |item| item[:search_name] =~ term }
-    puts "*******"
-    puts @ingredients
-    if request.xhr?
-      return @ingredients
-    else
-      redirect_to user_path(current_user.id)
-    end
-  end
+## WARNING: SEARCH ROUTE GOING TO SEARCH CONTROLLER
+  # def search
+  #   regex = "(.|)#{params[:search_term]}(.|)"
+  #   term = Regexp.new(regex)
+  #   @ingredients = Ingredient.where(pantry_id: current_pantry.id)
+  #   @ingredients = @ingredients.select { |item| item[:search_name] =~ term }
+  #   puts "*******"
+  #   puts @ingredients
+  #   if request.xhr?
+  #     return @ingredients
+  #   else
+  #     redirect_to user_path(current_user.id)
+  #   end
+  # end
 
   private
   def start_params

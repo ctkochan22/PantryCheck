@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,7 +11,6 @@ Rails.application.routes.draw do
     collection do
       get 'finish'
       post 'complete'
-      get 'search'
     end
 
     member do
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
 
+  #SEARCH ROUTE
+  get '/search/:id' => 'search#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
