@@ -11,6 +11,14 @@ Currently showing <%= @user.first_name + " " + @user.last_name %>
   <a href='/ingredient/new'><button type='button' class='btn btn-primary'>Add Ingredient</button></a>
 <% end %>
 
+<!-- SEARCH FUNCTIONALITY -->
+<div class='search_bar'>
+  <%= bootstrap_form_tag url: '/search', layout: :inline do |f| %>
+    <%= f.text_field :search_term, hide_label: true, placeholder: "Search Ingredients"%>
+    <%= f.submit "Search" %>
+  <% end %>
+</div>
+
 <div class='dropdown'>
     <button class="btn btn-default dropdown-toggle" type='button' id='categoryDropdown' data-toggle="dropdown">
       <% if params[:category] == nil %>
