@@ -8,7 +8,9 @@ edit.html.erb
   <br>
   <%= f.select :storage_type, @storage_types %>
   <br>
-  <%= f.submit "Update" %>
+  <%= f.submit "Update", class: "btn btn-info" %>
 <% end %>
 
-<a href=<%= "/user/#{current_user.id}" %>><button type='button' class="btn btn-danger">Cancel</button></a>
+<a href=<%= "/user/#{current_user.id}" %>><button type='button' class="btn btn-warning">Cancel</button></a>
+<br>
+<a href=<%= "/ingredient/#{@ingredient.id}" %>, data-method='delete', data-confirm="Are you sure?"><button type='button' class="btn btn-danger">Remove Ingredient</button></a>

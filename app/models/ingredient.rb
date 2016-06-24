@@ -1,5 +1,6 @@
 class Ingredient < ActiveRecord::Base
   belongs_to :pantry
+  has_many :users, through: :pantry
   attr_reader :categories
 
 
@@ -51,6 +52,14 @@ class Ingredient < ActiveRecord::Base
 
   def self.bsc_storage
     return @@bsc_storage
+  end
+
+  def is_owner(current_id)
+    self.users.each do |user|
+      puts user.id
+      return true if current_id == user.id
+    end
+    return false
   end
 
 end
