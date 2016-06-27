@@ -19,9 +19,9 @@ class UserController < ApplicationController
     @user = User.find_by(id: current_user.id)
     @pantry = Pantry.find_by(id: @user.pantry_id)
     if params[:category] == nil
-      @ingredients = Ingredient.where(pantry_id: @user.pantry_id)
+      @ingredients = Ingredient.where(pantry_id: @user.pantry_id).order(:name)
     else
-      @ingredients = Ingredient.where(pantry_id: @user.pantry_id, category: params[:category])
+      @ingredients = Ingredient.where(pantry_id: @user.pantry_id, category: params[:category]).order(:name)
     end
     @categories = Ingredient.categories_array
   end
