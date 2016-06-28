@@ -15,4 +15,28 @@ class SearchController < ApplicationController
     end
   end
 
+  def find
+  end
+
+  def pantry
+    @search_number = params[:search_term]
+    @search_user = User.find_by(phone_number: @search_number)
+    ## IF user is not found, @search_user is nil
+    if @search_user
+      ## IF pantry_id is not found, @pantry is nil
+      if @search_user.pantry_id
+        @pantry = Pantry.find_by(id: @search_user.pantry_id)
+        @users = @pantry.users
+      else
+        @pantry = nil
+      end
+    end
+    puts "*********"
+    puts "Search-Pantry Route Finished."
+    puts "Outputs: "
+    puts "@search_user = #{@search_user}"
+    puts "@pantry = #{@pantry}"
+    puts "@users = #{@users}"
+  end
+
 end
