@@ -2,7 +2,31 @@ show.html.erb
 
 <h3>Pantry Name: <%= @pantry.name %></h3>
 
-<h4>Add Pantry Mates</h4>
-<p>Every user can only have one pantry, so make sure they are your true pantry-mates!</p>
+<h4>Current Pantry Mates</h4>
+<table class="table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Last Four Digits of Phone Number</th>
+    <% if @is_member %>
+      <th>Remove User</th>
+    <% end %>
+  </tr>
 
-<h1> Not yet available. </h1>
+  <% @users.each do |member| %>
+    <tr>
+      <td><%= "#{member.first_name} #{member.last_name[0]}." %></td>
+      <td><%= "(***) *** - #{member.phone_number[-4..-1]}" %></td>
+      <% if @is_member %>
+        <td><a href="#">Remove</a></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<% if @is_member %>
+  <a href="#">
+    <button type="button" class="btn btn-primary">Add Mate</button></a>
+<% else %>
+  <a href="#">
+    <button type="button" class="btn btn-primary">Request to Join</button></a>
+<% end %>

@@ -1,0 +1,23 @@
+Search#Pantry
+
+<!-- 3 Situations: -->
+<!-- User not Found -->
+<!-- Found User, No Pantry -->
+<!-- Found User, Already Existing Pantry -->
+
+<h4>Search: <%= @search_number %></h4>
+<% if @search_user == nil %>
+  <h4>User Not Found!</h4>
+<% elsif @search_user && @pantry == nil %>
+  <h4>User Found!</h4>
+  <p>Name: <%= @search_user.first_name %> <%= @search_user.last_name[0] %>.</p>
+
+  <p>Your friend does not seem to have a pantry already. Click here to create one and then you can add them!</p>
+<% elsif @search_user && @pantry %>
+  <h4>User Found!</h4>
+  <p>Name: <%= @search_user.first_name %> <%= @search_user.last_name[0] %>.</p>
+  <p>And it seems they already have a pantry.</p>
+  <a href=<%= "/pantry/#{@search_user.pantry_id}" %>>View Pantry</a>
+
+<% end %>
+
