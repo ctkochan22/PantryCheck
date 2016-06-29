@@ -27,3 +27,8 @@ ingredient_list = [
 ingredient_list.each do |item_details|
   Ingredient.create(item_details)
 end
+
+#Scott -- 415-847-3928
+#Chelsea -- 559-679-4434
+#Robyn -- 628-220-8945
+

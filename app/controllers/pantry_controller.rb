@@ -3,8 +3,11 @@ class PantryController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: current_user.id)
+    redirect_to root_path if current_user == nil
     @pantry = Pantry.find_by(id: params[:id])
+    @users = @pantry.users
+    @is_member = @users.include?(current_user)
+
   end
 
   def new
