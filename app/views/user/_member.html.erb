@@ -1,0 +1,62 @@
+<h4>Pantry Name: <%= @pantry.name %></h4>
+<a href=<%= "/pantry/#{@pantry.id}" %> > <p>Details</p></a>
+<a href='/ingredient/new'><button type='button' class='btn btn-primary'>Add Ingredient</button></a>
+
+<!-- SEARCH FUNCTIONALITY -->
+<div class='search_bar'>
+  <%= bootstrap_form_tag url: '/search/show', method: 'get', layout: :inline do |f| %>
+    <%= f.text_field :search_term, hide_label: true, placeholder: "Search Ingredients"%>
+    <%= f.submit "Search" %>
+  <% end %>
+</div>
+<!--  -->
+
+<div class='dropdown'>
+    <button class="btn btn-default dropdown-toggle" type='button' id='categoryDropdown' data-toggle="dropdown">
+      <% if params[:category] == nil %>
+        Select Category
+      <% else %>
+        <%= Ingredient.abrev_to_name(params[:category]) %>
+      <% end %>
+      <span class='caret'></span> <!-- Down Arrow -->
+    </button>
+  <ul class='dropdown-menu' >
+    <% if @categories != nil %>
+        <li><a href= <%= "/user/#{current_user.id}" %>>All</a></a>
+      <% @categories.each do |category| %>
+        <!-- Skips Please Select -->
+        <% next if category[1] == 'none' %>
+        <li><a href=<%= "/user/#{current_user.id}?category=#{category[1]}" %>> <%= category[0] %> </a></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div id="pantryContent">
+  <table class='table table-hover table-bordered'>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th></th>
+    </tr>
+
+    <% if @ingredients == nil || @ingredients.count == 0 %>
+      <tr><td><h4>Nothing seems to be here</h4></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% else %>
+
+      <% @ingredients.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.category_name %></td>
+          <td><%= item.amount %></td>
+          <td><a href=<%= "/ingredient/#{item.id}/edit_amount" %>>Edit</a></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
