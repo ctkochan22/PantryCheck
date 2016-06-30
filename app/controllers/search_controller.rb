@@ -18,7 +18,7 @@ class SearchController < ApplicationController
   def find
   end
 
-  def pantry
+  def results
     @search_number = params[:search_term]
     @search_user = User.find_by(phone_number: @search_number)
     ## IF user is not found, @search_user is nil
