@@ -7,7 +7,6 @@ class PantryController < ApplicationController
     @pantry = Pantry.find_by(id: params[:id])
     @users = @pantry.users
     @is_member = @users.include?(current_user)
-
   end
 
   def new
