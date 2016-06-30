@@ -1,9 +1,9 @@
-Search#Find
+<!-- Search#Find -->
 
 <!-- SEARCH PANTRY FUNCTIONALITY -->
 <div class='search_bar'>
   <%= bootstrap_form_tag url: '/search/pantry', method: 'get' do |f| %>
-    <%= f.text_field :search_term, label: "Search Existing Pantries" , placeholder: "Search by phone number"%>
+    <%= f.text_field :search_term, label: "Search for Users/Pantries" , placeholder: "Search by user phone number"%>
     <%= f.submit "Search" %>
   <% end %>
 </div>
