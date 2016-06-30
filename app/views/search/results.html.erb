@@ -1,0 +1,36 @@
+<!-- Search#Pantry -->
+
+<h4>You Searched: <%= @search_number %></h4>
+<% if @search_user == nil %>
+  <h5>User Not Found!</h5>
+<% else %>
+  <h5>User Found!</h5>
+
+  <table class='table table-hover table-bordered'>
+    <tr>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Pantry Name</th>
+      <th>Send Invite</th>
+    </tr>
+    <tr>
+      <td><%= "#{@search_user.first_name} #{@search_user.last_name[0]}." %></td>
+      <td><%= @search_user.phone_number %></td>
+
+      <% if @pantry %>
+        <td><a href=<%= "/pantry/#{@pantry.id}" %> ><%= @pantry.name %></a></td>
+      <% else %>
+        <td>No Pantry</td>
+      <% end %>
+
+      <% if @has_pantry %>
+        <td><a href="#">Send Invite</a></td>
+      <% else %>
+        <td>Send Invite</td>
+      <% end %>
+
+  </table>
+
+
+<% end %>
+

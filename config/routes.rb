@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   #SEARCH ROUTE
   get '/search/find' => 'search#find'
-  get '/search/pantry' => 'search#pantry'
+  get '/search/results' => 'search#results'
   get '/search/:id' => 'search#show'
 
   # Example of regular route:
