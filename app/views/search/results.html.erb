@@ -1,23 +1,36 @@
-Search#Pantry
+<!-- Search#Pantry -->
 
-<!-- 3 Situations: -->
-<!-- User not Found -->
-<!-- Found User, No Pantry -->
-<!-- Found User, Already Existing Pantry -->
-
-<h4>Search: <%= @search_number %></h4>
+<h4>You Searched: <%= @search_number %></h4>
 <% if @search_user == nil %>
-  <h4>User Not Found!</h4>
-<% elsif @search_user && @pantry == nil %>
-  <h4>User Found!</h4>
-  <p>Name: <%= @search_user.first_name %> <%= @search_user.last_name[0] %>.</p>
+  <h5>User Not Found!</h5>
+<% else %>
+  <h5>User Found!</h5>
 
-  <p>Your friend does not seem to have a pantry already. Click here to create one and then you can add them!</p>
-<% elsif @search_user && @pantry %>
-  <h4>User Found!</h4>
-  <p>Name: <%= @search_user.first_name %> <%= @search_user.last_name[0] %>.</p>
-  <p>And it seems they already have a pantry.</p>
-  <a href=<%= "/pantry/#{@search_user.pantry_id}" %>>View Pantry</a>
+  <table class='table table-hover table-bordered'>
+    <tr>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Pantry Name</th>
+      <th>Send Invite</th>
+    </tr>
+    <tr>
+      <td><%= "#{@search_user.first_name} #{@search_user.last_name[0]}." %></td>
+      <td><%= @search_user.phone_number %></td>
+
+      <% if @pantry %>
+        <td><a href=<%= "/pantry/#{@pantry.id}" %> ><%= @pantry.name %></a></td>
+      <% else %>
+        <td>No Pantry</td>
+      <% end %>
+
+      <% if @has_pantry %>
+        <td><a href="#">Send Invite</a></td>
+      <% else %>
+        <td>Send Invite</td>
+      <% end %>
+
+  </table>
+
 
 <% end %>
 
