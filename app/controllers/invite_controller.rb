@@ -25,5 +25,8 @@ class InviteController < ApplicationController
   end
 
   def destroy
+    Invite.delete(params[:id])
+    flash[:notice] = "Invite Deleted."
+    redirect_to "/user/#{current_user.id}/invite"
   end
 end
