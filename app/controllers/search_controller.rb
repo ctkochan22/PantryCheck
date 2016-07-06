@@ -22,7 +22,7 @@ class SearchController < ApplicationController
     @search_number = params[:search_term]
     @search_user = User.find_by(phone_number: @search_number)
 
-    current_user
+    @current_user = current_user
     @has_pantry = current_pantry
     ## IF user is not found, @search_user is nil
     if @search_user

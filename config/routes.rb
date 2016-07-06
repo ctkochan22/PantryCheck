@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  resources :user
+  resources :user do
+    resources :invite, only: [:index, :create, :destroy]
+  end
   resources :pantry
   resources :ingredient do
     collection do
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
       put 'update_amount'
     end
   end
+
 
   root 'user#index'
 
