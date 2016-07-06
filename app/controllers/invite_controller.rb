@@ -1,8 +1,13 @@
 class InviteController < ApplicationController
   def index
-    if current_user
-
+    if current_pantry
+      @requests = current_pantry.invites.where(request: true)
+      @sent_invites = current_pantry.invites.where(request: false)
+    else
+      @requests = nil
+      @sent_invites = nil
     end
+    @invites = Invite.where(user_id: current_user.id)
   end
 
   def create

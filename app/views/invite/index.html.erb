@@ -8,6 +8,23 @@ Invite#Index
       <th>Phone Number</th>
       <th></th>
     </tr>
+    <% if @requests %>
+      <% @requests.each do |request|%>
+        <tr>
+          <td><%= request.created_at %></td>
+          <td><%= "#{request.user.first_name} #{request.user.last_name[0]}. " %></td>
+          <td><%= request.user.phone_number %></td>
+          <td><a href="#">Send Invite</a></td>
+        </tr>
+
+      <% end %>
+    <% else %>
+      <tr><td><h5>No Requests</h5></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
   </table>
 
 <h4>Invites</h4>
@@ -18,6 +35,19 @@ Invite#Index
       <th>Pantry</th>
       <th>Response</th>
     </tr>
+    <% @invites.each do |invite| %>
+      <tr>
+        <td><%= invite.created_at %></td>
+        <td><%= "#{invite.sender.first_name} #{invite.sender.last_name[0]}. " %></td>
+
+        <% if @pantry %>
+          <td><%= invite.sender.pantry.name %></td>
+        <% else %>
+          <td>No Pantry</td>
+        <% end %>
+
+        <td><a href='#'>Accept</a></td>
+    <% end %>
   </table>
 
 
@@ -29,4 +59,21 @@ Invite#Index
     <th>Phone Number</th>
     <th></th>
   </tr>
+
+  <% if @sent_invites %>
+    <% @sent_invites.each do |sent_invite|%>
+      <tr>
+        <td><%= sent_invite.created_at %></td>
+        <td><%= "#{sent_invite.user.first_name} #{sent_invite.user.last_name[0]}. " %></td>
+        <td><%= sent_invite.user.phone_number %></td>
+        <td><a href="#">Delete Invite</a></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr><td><h5>No Sent Invites</h5></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <% end %>
 </table>
