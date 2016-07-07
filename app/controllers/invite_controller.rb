@@ -15,13 +15,25 @@ class InviteController < ApplicationController
     target_user = User.find_by(id: params["target_id"])
     sending_user = User.find_by(id: current_user.id)
 
+    #Check if there is a duplicate invite
     is_duplicate = Invite.where(sender_id: current_user.id, user_id: target_user.id)
+
+    #Creating new Invite
     invite = Invite.new(pantry_id: current_user.pantry_id, user_id: target_user.id, sender_id: sending_user.id, request: false)
-    if invite.save && (is_duplicate.count == 0)
+    puts "************"
+    puts is_duplicate
+    puts is_duplicate.count
+    if is_duplicate.count > 0
+      flash[:notice] = "Invited Already."
       redirect_to "/user/#{current_user.id}/invite"
+    elsif invite.save
+      puts "Invited Created Successfully"
+      flash[:notice] = "#{target_user.first_name} Successfully Invited"
+      redirect_to "/user/#{current_user.id}/invite"
+    else
+      flash[:notice] = "Something went wrong."
+      redirect_to user_path(current_user)
     end
-    flash[:notice] = "Invited Already."
-    redirect_to user_path(current_user)
   end
 
   def destroy
