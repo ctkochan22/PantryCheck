@@ -23,10 +23,11 @@
         <td>No Pantry</td>
       <% end %>
 
+      <!-- Only allows users w/ pantries to send invites -->
       <% if @has_pantry %>
-        <td><a href="#">Send Invite</a></td>
+        <td><%= link_to "Send Invite", "/user/#{@current_user.id}/invite?target_id=#{@search_user.id}", :method => :post %></td>
       <% else %>
-        <td>Send Invite</td>
+        <td>Need Pantry First</td>
       <% end %>
 
   </table>

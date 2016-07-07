@@ -1,0 +1,87 @@
+Invite#Index
+
+<h4>Requests</h4>
+  <table class='table table-hover table-bordered'>
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th></th>
+    </tr>
+    <% if @requests == nil || @requests.count == 0  %>
+      <tr><td><h5>No Requests</h5></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% else %>
+      <% @requests.each do |request|%>
+        <tr>
+          <td><%= request.created_at %></td>
+          <td><%= "#{request.user.first_name} #{request.user.last_name[0]}. " %></td>
+          <td><%= request.user.phone_number %></td>
+          <td><%= link_to "Send Invite", "/user/#{@current_user.id}/invite?target_id=#{request.user.id}", :method => :post %></td>
+        </tr>
+      <% end %>
+
+    <% end %>
+  </table>
+
+<h4>Invites</h4>
+  <table class='table table-hover table-bordered'>
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Pantry</th>
+      <th>Response</th>
+    </tr>
+    <% if @invites.count == 0 %>
+      <tr><td><h5>No Invites</h5></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% else %>
+      <% @invites.each do |invite| %>
+        <tr>
+          <td><%= invite.created_at %></td>
+          <td><%= "#{invite.sender.first_name} #{invite.sender.last_name[0]}. " %></td>
+
+          <% if @pantry %>
+            <td><%= invite.sender.pantry.name %></td>
+          <% else %>
+            <td>No Pantry</td>
+          <% end %>
+
+          <td><a href='#'>Accept</a></td>
+      <% end %>
+    <% end %>
+  </table>
+
+
+<h4>Sent Invites</h4>
+<table class='table table-hover table-bordered'>
+  <tr>
+    <th>Date</th>
+    <th>Recipient</th>
+    <th>Phone Number</th>
+    <th></th>
+  </tr>
+
+  <% if @sent_invites == nil || @sent_invites.count == 0  %>
+    <tr><td><h5>No Sent Invites</h5></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  <% else%>
+    <% @sent_invites.each do |sent_invite|%>
+      <tr>
+        <td><%= sent_invite.created_at %></td>
+        <td><%= "#{sent_invite.user.first_name} #{sent_invite.user.last_name[0]}. " %></td>
+        <td><%= sent_invite.user.phone_number %></td>
+        <td><%= link_to "Delete Invite", "/user/#{@current_user.id}/invite/#{sent_invite.id}", :confirm => "Are you sure you want to delete invite?", :method => :delete %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
